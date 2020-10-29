@@ -11,14 +11,14 @@ public:
     float cilindrada;
     int kilometraje;
     float combustible;
-    float precio_base;
+    float precioBase;
 
 public:
     Vehiculo(int cilindrada, int kilometraje, int combustible);
 
-    float coeficiente_impositivo();
+    float coeficienteImpositivo();
 
-    virtual float valor_mercado()=0;
+    virtual float valorMercado()=0;
 
     void crear(char** entrada);
 };

@@ -13,6 +13,6 @@ Vehiculo::Vehiculo(int cilindrada, int kilometraje, int combustible){
     this->combustible = combustible;
 }
 
-float Vehiculo::coeficiente_impositivo() {
-    return this->precio_base * this->cilindrada / 1000000;
+float Vehiculo::coeficienteImpositivo() {
+    return this->precioBase * this->cilindrada / 1000000;
 }

@@ -10,8 +10,9 @@ using namespace std;
 int main(int argc, char *argv[]) {
 
     Parser parser = Parser(argv);
-    Vehiculo* vehiculo = parser.procesar_entrada(argv);
-    cout<< vehiculo->valor_mercado()<<endl;
+    Vehiculo* vehiculo = parser.procesarEntrada(argv);
+    cout<< vehiculo->valorMercado()<<endl;
+    cout<< vehiculo->coeficienteImpositivo()<<endl;
 
     /*Camion camion = Camion(23,45,40);
     cout << camion.valor_mercado();*/

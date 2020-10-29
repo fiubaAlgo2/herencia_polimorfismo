@@ -4,6 +4,8 @@
 
 #include "parser.h"
 #include "camion.h"
+#include "auto.h"
+#include "camioneta.h"
 #include<string>
 #include<iostream>
 
@@ -13,16 +15,22 @@ Parser::Parser(char** argv) {
     this->entrada = argv;
 }
 
-Vehiculo* Parser::procesar_entrada(char **argv){
+Vehiculo* Parser::procesarEntrada(char **argv){
     Vehiculo* vehiculo = NULL;
     Parser parser(argv);
-    if(this->tipo_vehiculo() == "camion"){
+    if(this->tipoVehiculo() == "camion"){
         vehiculo = new Camion(this->cilindrada(), this->kilometraje(), this->combustible());
+    }
+    else if (this->tipoVehiculo() == "auto"){
+        vehiculo = new Auto(this->cilindrada(), this->kilometraje(), this->combustible());
+    }
+    else{
+        vehiculo = new Camioneta(this->cilindrada(), this->kilometraje(), this->combustible());
     }
     return vehiculo;
 }
 
-std::string Parser::tipo_vehiculo(){
+std::string Parser::tipoVehiculo(){
     return this->entrada[1];
 }
 
