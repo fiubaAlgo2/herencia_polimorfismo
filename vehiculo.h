@@ -15,6 +15,7 @@ public:
 
 public:
     Vehiculo(int cilindrada, int kilometraje, int combustible);
+    ~Vehiculo(){};
 
     float coeficienteImpositivo();
 

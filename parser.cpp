@@ -45,3 +45,5 @@ int Parser::kilometraje(){
 float Parser::combustible(){
     return atof(this->entrada[4]);
 }
+
+

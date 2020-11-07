@@ -10,6 +10,7 @@
 class Camion: public Vehiculo {
 public:
     Camion(int cilindrada, int kilometraje, int combustible);
+    ~Camion();
 
     float valorMercado();
 };

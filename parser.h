@@ -14,6 +14,7 @@ private:
 public:
     char** entrada;
     Parser(char **argv);
+    ~Parser(){};
     Vehiculo* procesarEntrada(char **argv);
     std::string tipoVehiculo();
     float cilindrada();
