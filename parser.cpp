@@ -8,6 +8,7 @@
 #include "camioneta.h"
 #include<string>
 #include<iostream>
+#include <map>
 
 using namespace std;
 
@@ -16,6 +17,23 @@ Parser::Parser(char** argv) {
 }
 
 Vehiculo* Parser::procesarEntrada(char **argv){
+    Parser parser(argv);
+
+    std::map<string, Vehiculo*>  map;
+    map["auto"] = new Auto(this->cilindrada(),this->kilometraje(),this->combustible());
+    map["camion"] = new Auto(this->cilindrada(),this->kilometraje(),this->combustible());
+    map["camioneta"] = new Camioneta(this->cilindrada(),this->kilometraje(),this->combustible());
+
+    Vehiculo* vehiculo = map[this->tipoVehiculo()];
+    map[this->tipoVehiculo()] = NULL;
+
+    for(auto i = map.begin(); i != map.end(); ++i) // Frees the created objects at the map
+    {
+        delete map[i->first];
+    }
+
+    return vehiculo;
+/*
     Vehiculo* vehiculo = NULL;
     Parser parser(argv);
     if(this->tipoVehiculo() == "camion"){
@@ -27,7 +45,7 @@ Vehiculo* Parser::procesarEntrada(char **argv){
     else{
         vehiculo = new Camioneta(this->cilindrada(), this->kilometraje(), this->combustible());
     }
-    return vehiculo;
+    return vehiculo;*/
 }
 
 std::string Parser::tipoVehiculo(){
