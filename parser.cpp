@@ -25,33 +25,45 @@ Empleado* Parser::procesarEntrada()
 
     cout << "Numero aleatorio: " << numeroAleatorio << endl;
 
-    std::map<std::pair<int, int>, Empleado*> dic;
-    dic[{0,69}] = new Administrativo(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
-    dic[{70,89}] = new JefeDeArea(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
-    dic[{90,100}] = new Director(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+    std::map<std::pair<int, int>, Empleado*> map;
+    map[{0,69}] = new Administrativo(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+    map[{70,89}] = new JefeDeArea(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+    map[{90,100}] = new Director(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
 
-    for (auto itr = dic.begin(); itr != dic.end(); itr++)
+    Empleado* empleado;
+
+    for (auto itr = map.begin(); itr != map.end(); itr++)
     {
         if(numeroAleatorio >= itr->first.first && numeroAleatorio <= itr->first.second)
         {
-            return itr->second;
+            empleado = itr->second;
+            map[itr->first] = NULL;
         }
     }
-   /* if(numeroAleatorio >= 0 && numeroAleatorio <= 69)
+
+    for(auto i = map.begin(); i != map.end(); ++i) // Frees the created objects at the map
     {
-        cout << "administrativo"<<endl;
-        return new Administrativo(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+        delete map[i->first];
     }
-    else if (numeroAleatorio >= 70 && numeroAleatorio <= 89)
-    {
-        cout << "jefe de area"<<endl;
-        return new JefeDeArea(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
-    }
-    else
-    {
-        cout << "director"<<endl;
-        return new Director(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
-    }*/
+
+    return empleado;
+
+
+    /* if(numeroAleatorio >= 0 && numeroAleatorio <= 69)
+     {
+         cout << "administrativo"<<endl;
+         return new Administrativo(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+     }
+     else if (numeroAleatorio >= 70 && numeroAleatorio <= 89)
+     {
+         cout << "jefe de area"<<endl;
+         return new JefeDeArea(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+     }
+     else
+     {
+         cout << "director"<<endl;
+         return new Director(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+     }*/
 
 }
 
