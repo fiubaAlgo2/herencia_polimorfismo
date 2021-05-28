@@ -21,6 +21,7 @@ un 15 % y a los empleados administrativos un 20 % anual.
 
 
 **Ejercicio 1.18.** 
+
 Escribir un main que genere en forma aleatoria un vector
 de 100 Empleados, teniendo en cuenta la implementación del punto anterior. 
 Para eso se debe “sortear” de forma random un número entre 0 y 1,
