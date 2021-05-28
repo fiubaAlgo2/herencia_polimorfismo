@@ -1,21 +1,18 @@
 #include <iostream>
-#include <fstream>
-#include "camioneta.h"
-#include "camion.h"
-#include "auto.h"
+
+#include "director.h"
 #include "parser.h"
 
-using namespace std;
-
-int main(int argc, char *argv[]) {
-
+int main(int argc, char* argv[]) {
     Parser parser = Parser(argv);
-    Vehiculo* vehiculo = parser.procesarEntrada(argv);
-    cout<< vehiculo->valorMercado()<<endl;
-    cout<< vehiculo->coeficienteImpositivo()<<endl;
-    delete vehiculo;
+    Empleado* empleado = parser.procesarEntrada();
 
-    /*Camion camion = Camion(23,45,40);
-    cout << camion.valor_mercado();*/
-    return 0;
+   empleado->visualizarCaracteristicas();
+   empleado->incrementarSalario();
+   empleado->visualizarCaracteristicas();
+
+   delete empleado;
+
+
+   return 0;
 }

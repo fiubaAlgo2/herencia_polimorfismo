@@ -1,67 +1,80 @@
 //
-// Created by carolina on 29/10/20.
+// Created by carolina on 20/5/21.
 //
 
 #include "parser.h"
-#include "camion.h"
-#include "auto.h"
-#include "camioneta.h"
-#include<string>
+#include "map"
+#include "administrativo.h"
+#include "director.h"
+#include "jefeDeArea.h"
 #include<iostream>
-#include <map>
+#include<ctime>
 
 using namespace std;
 
-Parser::Parser(char** argv) {
+enum Argv{ LEGAJO = 1, NOMBRE, APELLIDO, SALARIO, ANTIGUEDAD};
+
+Parser::Parser(char **argv) {
     this->entrada = argv;
 }
 
-Vehiculo* Parser::procesarEntrada(char **argv){
-    Parser parser(argv);
+Empleado* Parser::procesarEntrada()
+{
+    srand((unsigned) time(0));
+    int numeroAleatorio = rand() % (101);
 
-    std::map<string, Vehiculo*>  map;
-    map["auto"] = new Auto(this->cilindrada(),this->kilometraje(),this->combustible());
-    map["camion"] = new Auto(this->cilindrada(),this->kilometraje(),this->combustible());
-    map["camioneta"] = new Camioneta(this->cilindrada(),this->kilometraje(),this->combustible());
+    cout << "Numero aleatorio: " << numeroAleatorio << endl;
 
-    Vehiculo* vehiculo = map[this->tipoVehiculo()];
-    map[this->tipoVehiculo()] = NULL;
+    std::map<std::pair<int, int>, Empleado*> dic;
+    dic[{0,69}] = new Administrativo(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+    dic[{70,89}] = new JefeDeArea(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+    dic[{90,100}] = new Director(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
 
-    for(auto i = map.begin(); i != map.end(); ++i) // Frees the created objects at the map
+    for (auto itr = dic.begin(); itr != dic.end(); itr++)
     {
-        delete map[i->first];
+        if(numeroAleatorio >= itr->first.first && numeroAleatorio <= itr->first.second)
+        {
+            return itr->second;
+        }
     }
+   /* if(numeroAleatorio >= 0 && numeroAleatorio <= 69)
+    {
+        cout << "administrativo"<<endl;
+        return new Administrativo(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+    }
+    else if (numeroAleatorio >= 70 && numeroAleatorio <= 89)
+    {
+        cout << "jefe de area"<<endl;
+        return new JefeDeArea(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+    }
+    else
+    {
+        cout << "director"<<endl;
+        return new Director(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
+    }*/
 
-    return vehiculo;
-/*
-    Vehiculo* vehiculo = NULL;
-    Parser parser(argv);
-    if(this->tipoVehiculo() == "camion"){
-        vehiculo = new Camion(this->cilindrada(), this->kilometraje(), this->combustible());
-    }
-    else if (this->tipoVehiculo() == "auto"){
-        vehiculo = new Auto(this->cilindrada(), this->kilometraje(), this->combustible());
-    }
-    else{
-        vehiculo = new Camioneta(this->cilindrada(), this->kilometraje(), this->combustible());
-    }
-    return vehiculo;*/
 }
 
-std::string Parser::tipoVehiculo(){
-    return this->entrada[1];
+uint64_t Parser::legajo() {
+    return atoi(this->entrada[LEGAJO]);
 }
 
-float Parser::cilindrada(){
-    return atof(this->entrada[2]);
+std::string Parser::nombre() {
+    return this->entrada[NOMBRE];
 }
 
-int Parser::kilometraje(){
-    return atof(this->entrada[3]);
+std::string Parser::apellido() {
+    return this->entrada[APELLIDO];
 }
 
-float Parser::combustible(){
-    return atof(this->entrada[4]);
+uint64_t Parser::salario()
+{
+    return atoi(this->entrada[SALARIO]);
+}
+
+uint64_t Parser::antiguedad()
+{
+    return atoi(this->entrada[ANTIGUEDAD]);
 }
 
 

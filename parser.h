@@ -1,27 +1,29 @@
 //
-// Created by carolina on 29/10/20.
+// Created by carolina on 20/5/21.
 //
 
-#ifndef UNTITLED4_PARSER_H
-#define UNTITLED4_PARSER_H
+#ifndef H_P_PARSER_H
+#define H_P_PARSER_H
 
-#include "vehiculo.h"
-#include <string>
+#include "empleado.h"
+#include<iostream>
 
-class Parser {
+class Parser
+{
 private:
+    char** entrada;
+    std::string tipoDeEmpleado();
+    uint64_t legajo();
+    std::string nombre();
+    std::string apellido();
+    uint64_t salario();
+    uint64_t antiguedad();
 
 public:
-    char** entrada;
-    Parser(char **argv);
-    ~Parser(){};
-    Vehiculo* procesarEntrada(char **argv);
-    std::string tipoVehiculo();
-    float cilindrada();
-    int kilometraje();
-    float combustible();
+    Parser(char** argv);
 
+    Empleado* procesarEntrada();
 };
 
 
-#endif //UNTITLED4_PARSER_H
+#endif //H_P_PARSER_H
