@@ -19,7 +19,7 @@ Parser::Parser(char** argv) {
 Vehiculo* Parser::procesarEntrada(char **argv){
     std::map<string, Vehiculo*>  map;
     map["auto"] = new Auto(this->cilindrada(),this->kilometraje(),this->combustible());
-    map["camion"] = new Auto(this->cilindrada(),this->kilometraje(),this->combustible());
+    map["camion"] = new Camion(this->cilindrada(),this->kilometraje(),this->combustible());
     map["camioneta"] = new Camioneta(this->cilindrada(),this->kilometraje(),this->combustible());
 
     Vehiculo* vehiculo = map[this->tipoVehiculo()];
