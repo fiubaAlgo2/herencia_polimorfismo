@@ -51,15 +51,15 @@ std::string Parser::tipoVehiculo(){
 }
 
 float Parser::cilindrada(){
-    return atof(this->entrada[2]);
+    return stof(this->entrada[2]);
 }
 
-int Parser::kilometraje(){
-    return atof(this->entrada[3]);
+float Parser::kilometraje(){
+    return stof(this->entrada[3]);
 }
 
 float Parser::combustible(){
-    return atof(this->entrada[4]);
+    return stof(this->entrada[4]);
 }
 
 

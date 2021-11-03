@@ -9,13 +9,16 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-    Parser parser = Parser(argv);
-    Vehiculo* vehiculo = parser.procesarEntrada(argv);
-    cout<< vehiculo->valorMercado()<<endl;
-    cout<< vehiculo->coeficienteImpositivo()<<endl;
-    delete vehiculo;
-
-    /*Camion camion = Camion(23,45,40);
-    cout << camion.valor_mercado();*/
+    if (argc == 5) {
+        Parser parser = Parser(argv);
+        Vehiculo* vehiculo = parser.procesarEntrada(argv);
+        cout<< vehiculo->valorMercado()<<endl;
+        cout<< vehiculo->coeficienteImpositivo()<<endl;
+        delete vehiculo;
+    }
+    else {
+        cout << "Ingrese los argumentos del programa, por ejemplo: ./a.out camion 1 2 3" << endl;
+    }
+    
     return 0;
 }

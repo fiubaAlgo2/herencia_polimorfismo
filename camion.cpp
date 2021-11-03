@@ -4,11 +4,11 @@
 
 #include "camion.h"
 
-Camion::Camion(int cilindrada, int kilometraje, int combustible):Vehiculo(cilindrada, kilometraje, combustible) {
+Camion::Camion(float cilindrada, float kilometraje, float combustible):Vehiculo(cilindrada, kilometraje, combustible) {
     this->precioBase = 1500;
 }
 
 float Camion::valorMercado() {
     return (this->coeficienteImpositivo() * this->precioBase) /
-            ((this->kilometraje + this->cilindrada + this->combustible) * 0.002);
+            ((this->kilometraje + this->cilindrada + this->combustible) * 0.002f);
 }

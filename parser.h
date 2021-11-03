@@ -18,7 +18,7 @@ public:
     Vehiculo* procesarEntrada(char **argv);
     std::string tipoVehiculo();
     float cilindrada();
-    int kilometraje();
+    float kilometraje();
     float combustible();
 
 };

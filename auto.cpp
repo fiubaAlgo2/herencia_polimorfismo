@@ -4,11 +4,11 @@
 
 #include "auto.h"
 
-Auto::Auto(int cilindrada, int kilometraje, int combustible):Vehiculo(cilindrada, kilometraje, combustible) {
+Auto::Auto(float cilindrada, float kilometraje, float combustible):Vehiculo(cilindrada, kilometraje, combustible) {
     this->precioBase = 1000;
 }
 
 float Auto::valorMercado() {
     return (this->coeficienteImpositivo() * this->precioBase * this->combustible) /
-                            (1 + 0.001 * this->kilometraje);
+                            (1 + 0.001f * this->kilometraje);
 }

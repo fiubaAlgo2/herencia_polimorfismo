@@ -7,7 +7,7 @@
 #include <map>
 #include <string>
 
-Vehiculo::Vehiculo(int cilindrada, int kilometraje, int combustible){
+Vehiculo::Vehiculo(float cilindrada, float kilometraje, float combustible){
     this->cilindrada = cilindrada;
     this->kilometraje = kilometraje;
     this->combustible = combustible;

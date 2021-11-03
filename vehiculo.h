@@ -9,13 +9,13 @@ class Vehiculo{
 
 public:
     float cilindrada;
-    int kilometraje;
+    float kilometraje;
     float combustible;
     float precioBase;
 
 public:
-    Vehiculo(int cilindrada, int kilometraje, int combustible);
-    ~Vehiculo(){};
+    Vehiculo(float cilindrada, float kilometraje, float combustible);
+    virtual ~Vehiculo(){};
 
     float coeficienteImpositivo();
 

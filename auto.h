@@ -9,7 +9,7 @@
 
 class Auto: public Vehiculo {
 public:
-    Auto(int cilindrada, int kilometraje, int combustible);
+    Auto(float cilindrada, float kilometraje, float combustible);
     ~Auto(){};
 
     float valorMercado();
