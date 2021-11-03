@@ -49,7 +49,9 @@ Empleado* Parser::procesarEntrada()
     return empleado;
 
 
-    /* if(numeroAleatorio >= 0 && numeroAleatorio <= 69)
+    /* Otra opcion: sin STL
+    
+    if(numeroAleatorio >= 0 && numeroAleatorio <= 69)
      {
          cout << "administrativo"<<endl;
          return new Administrativo(this->legajo(), this->nombre(), this->apellido(), this->salario(), this->antiguedad());
@@ -67,7 +69,7 @@ Empleado* Parser::procesarEntrada()
 
 }
 
-uint64_t Parser::legajo() {
+unsigned int Parser::legajo() {
     return atoi(this->entrada[LEGAJO]);
 }
 
@@ -79,12 +81,12 @@ std::string Parser::apellido() {
     return this->entrada[APELLIDO];
 }
 
-uint64_t Parser::salario()
+float Parser::salario()
 {
-    return atoi(this->entrada[SALARIO]);
+    return stof(this->entrada[SALARIO]);
 }
 
-uint64_t Parser::antiguedad()
+unsigned int Parser::antiguedad()
 {
     return atoi(this->entrada[ANTIGUEDAD]);
 }

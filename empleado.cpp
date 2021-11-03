@@ -6,7 +6,7 @@
 #include<iostream>
 using namespace std;
 
-Empleado::Empleado(uint64_t legajo, std::string nombre, std::string apellido, uint64_t salario, uint64_t antiguedad)
+Empleado::Empleado(unsigned int legajo, std::string nombre, std::string apellido, float salario, unsigned int antiguedad)
 {
     this->legajo = legajo;
     this->nombre = nombre;

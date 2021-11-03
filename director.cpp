@@ -4,7 +4,7 @@
 
 #include "director.h"
 
-Director::Director(uint64_t legajo, std::string nombre, std::string apellido, uint64_t salario, uint64_t antiguedad)
+Director::Director(unsigned int legajo, std::string nombre, std::string apellido, float salario, unsigned int antiguedad)
     :Empleado(legajo, nombre, apellido, salario, antiguedad)
 {
 
@@ -12,5 +12,5 @@ Director::Director(uint64_t legajo, std::string nombre, std::string apellido, ui
 
 void Director::incrementarSalario()
 {
-    this->salario = this->salario * 1.1;
+    this->salario = this->salario * 1.1f;
 }

@@ -12,9 +12,11 @@ class Director: public Empleado
 {
 
 public:
-    Director(uint64_t legajo, std::string nombre, std::string apellido, uint64_t salario, uint64_t antiguedad);
+    Director(unsigned int legajo, std::string nombre, std::string apellido, float salario, unsigned int antiguedad);
 
     void incrementarSalario();
+
+    ~Director(){};
 };
 
 

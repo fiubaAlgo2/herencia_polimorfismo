@@ -12,9 +12,11 @@ class Administrativo : public Empleado
 {
 
 public:
-    Administrativo(uint64_t legajo, std::string nombre, std::string apellido, uint64_t salario, uint64_t antiguedad);
+    Administrativo(unsigned int legajo, std::string nombre, std::string apellido, float salario, unsigned int antiguedad);
 
     void incrementarSalario();
+
+    ~Administrativo(){};
 };
 
 

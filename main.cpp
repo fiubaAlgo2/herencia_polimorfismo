@@ -4,15 +4,21 @@
 #include "parser.h"
 
 int main(int argc, char* argv[]) {
-    Parser parser = Parser(argv);
-    Empleado* empleado = parser.procesarEntrada();
 
-   empleado->visualizarCaracteristicas();
-   empleado->incrementarSalario();
-   empleado->visualizarCaracteristicas();
+    if(argc == 6) {
+        Parser parser = Parser(argv);
+        Empleado* empleado = parser.procesarEntrada();
 
-   delete empleado;
+        empleado->visualizarCaracteristicas();
+        empleado->incrementarSalario();
+        empleado->visualizarCaracteristicas();
 
+        delete empleado;
+    }
 
-   return 0;
+    else {
+        std::cout << "Ingrese todos los argumentos del programa, por ejemplo: ./a.out 99177 Juan Perez 50000 10" << std::endl;
+    }
+
+    return 0;
 }

@@ -11,9 +11,11 @@
 class JefeDeArea : public Empleado
 {
 public:
-    JefeDeArea(uint64_t legajo, std::string nombre, std::string apellido, uint64_t salario, uint64_t antiguedad);
+    JefeDeArea(unsigned int legajo, std::string nombre, std::string apellido, float salario, unsigned int antiguedad);
 
     void incrementarSalario();
+
+    ~JefeDeArea(){};
 };
 
 

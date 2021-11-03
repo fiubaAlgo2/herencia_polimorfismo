@@ -13,11 +13,11 @@ class Parser
 private:
     char** entrada;
     std::string tipoDeEmpleado();
-    uint64_t legajo();
+    unsigned int legajo();
     std::string nombre();
     std::string apellido();
-    uint64_t salario();
-    uint64_t antiguedad();
+    float salario();
+    unsigned int antiguedad();
 
 public:
     Parser(char** argv);

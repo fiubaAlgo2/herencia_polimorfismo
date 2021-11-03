@@ -9,17 +9,19 @@
 
 class Empleado {
 protected:
-    uint64_t legajo;
+    unsigned int legajo;
     std::string nombre;
     std::string apellido;
-    uint64_t salario;
-    uint64_t antiguedad;
+    float salario;
+    unsigned int antiguedad;
 
 public:
-    Empleado(uint64_t legajo, std::string nombre, std::string apellido, uint64_t salario, uint64_t antiguedad);
+    Empleado(unsigned int legajo, std::string nombre, std::string apellido, float salario, unsigned int antiguedad);
 
     void visualizarCaracteristicas();
     virtual void incrementarSalario() = 0;
+
+    virtual ~Empleado(){};
 };
 
 
