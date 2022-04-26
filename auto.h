@@ -9,11 +9,10 @@
 
 class Auto: public Vehiculo {
 public:
-    Auto(float cilindrada, float kilometraje, float combustible);
+    Auto(const float cilindrada, const float kilometraje, const float combustible);
     ~Auto(){};
 
-    float valorMercado();
+    float valorMercado() const;
 };
-
 
 #endif //UNTITLED4_AUTO_H

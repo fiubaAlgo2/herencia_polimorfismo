@@ -9,11 +9,10 @@
 
 class Camioneta: public Vehiculo {
 public:
-    Camioneta(float cilindrada, float kilometraje, float combustible);
+    Camioneta(const float cilindrada, const float kilometraje, const float combustible);
     ~Camioneta(){};
 
-    float valorMercado();
-
+    float valorMercado() const;
 };
 
 #endif //UNTITLED4_CAMIONETA_H

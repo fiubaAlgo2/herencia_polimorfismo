@@ -6,20 +6,18 @@
 #define UNTITLED4_VEHICULO_H
 
 class Vehiculo{
-
 public:
+    Vehiculo(const float cilindrada, const float kilometraje, const float combustible);
+    virtual ~Vehiculo(){};
+
+    float coeficienteImpositivo() const;
+    virtual float valorMercado() const = 0;
+
+protected:
     float cilindrada;
     float kilometraje;
     float combustible;
     float precioBase;
-
-public:
-    Vehiculo(float cilindrada, float kilometraje, float combustible);
-    virtual ~Vehiculo(){};
-
-    float coeficienteImpositivo();
-
-    virtual float valorMercado()=0;
 };
 
 #endif //UNTITLED4_VEHICULO_H

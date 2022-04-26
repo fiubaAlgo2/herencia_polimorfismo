@@ -12,15 +12,17 @@ class Parser {
 private:
 
 public:
-    char** entrada;
     Parser(char **argv);
     ~Parser(){};
-    Vehiculo* procesarEntrada(char **argv);
-    std::string tipoVehiculo();
-    float cilindrada();
-    float kilometraje();
-    float combustible();
+    Vehiculo* procesarEntrada() const;
 
+private:
+    char** entrada;
+
+    std::string tipoVehiculo() const;
+    float cilindrada() const;
+    float kilometraje() const;
+    float combustible() const;
 };
 
 

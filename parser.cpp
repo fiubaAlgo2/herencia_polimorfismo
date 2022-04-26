@@ -6,9 +6,7 @@
 #include "camion.h"
 #include "auto.h"
 #include "camioneta.h"
-#include<string>
-#include<iostream>
-#include <map>
+#include "constantes.h"
 
 using namespace std;
 
@@ -16,50 +14,34 @@ Parser::Parser(char** argv) {
     this->entrada = argv;
 }
 
-Vehiculo* Parser::procesarEntrada(char **argv){
-    std::map<string, Vehiculo*>  map;
-    map["auto"] = new Auto(this->cilindrada(),this->kilometraje(),this->combustible());
-    map["camion"] = new Camion(this->cilindrada(),this->kilometraje(),this->combustible());
-    map["camioneta"] = new Camioneta(this->cilindrada(),this->kilometraje(),this->combustible());
-
-    Vehiculo* vehiculo = map[this->tipoVehiculo()];
-    map[this->tipoVehiculo()] = NULL;
-
-    for(auto i = map.begin(); i != map.end(); ++i) // Frees the created objects at the map
-    {
-        delete map[i->first];
-    }
-
-    return vehiculo;
-/*
+Vehiculo* Parser::procesarEntrada() const {
     Vehiculo* vehiculo = NULL;
-    Parser parser(argv);
-    if(this->tipoVehiculo() == "camion"){
+    if(this->tipoVehiculo() == CAMION) {
         vehiculo = new Camion(this->cilindrada(), this->kilometraje(), this->combustible());
     }
-    else if (this->tipoVehiculo() == "auto"){
+    else if (this->tipoVehiculo() == AUTO) {
         vehiculo = new Auto(this->cilindrada(), this->kilometraje(), this->combustible());
     }
-    else{
+    else if (this->tipoVehiculo() == CAMIONETA) {
         vehiculo = new Camioneta(this->cilindrada(), this->kilometraje(), this->combustible());
     }
-    return vehiculo;*/
+    return vehiculo;
 }
 
-std::string Parser::tipoVehiculo(){
-    return this->entrada[1];
+std::string Parser::tipoVehiculo() const {
+    return this->entrada[posicion::TIPO_VEHICULO];
 }
 
-float Parser::cilindrada(){
-    return stof(this->entrada[2]);
+float Parser::cilindrada() const {
+    return stof(this->entrada[posicion::CILINDRADA]);
 }
 
-float Parser::kilometraje(){
-    return stof(this->entrada[3]);
+float Parser::kilometraje() const {
+    return stof(this->entrada[posicion::KILOMETRAJE]);
 }
 
-float Parser::combustible(){
-    return stof(this->entrada[4]);
+float Parser::combustible() const {
+    return stof(this->entrada[posicion::COMBUSTIBLE]);
 }
 
 

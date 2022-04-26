@@ -7,12 +7,12 @@
 #include <map>
 #include <string>
 
-Vehiculo::Vehiculo(float cilindrada, float kilometraje, float combustible){
+Vehiculo::Vehiculo(const float cilindrada, const float kilometraje, const float combustible) {
     this->cilindrada = cilindrada;
     this->kilometraje = kilometraje;
     this->combustible = combustible;
 }
 
-float Vehiculo::coeficienteImpositivo() {
+float Vehiculo::coeficienteImpositivo() const {
     return this->precioBase * this->cilindrada / 1000000;
 }

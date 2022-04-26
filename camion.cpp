@@ -5,11 +5,12 @@
 #include "camion.h"
 #include "constantes.h"
 
-Camion::Camion(float cilindrada, float kilometraje, float combustible):Vehiculo(cilindrada, kilometraje, combustible) {
+Camion::Camion(const float cilindrada, const float kilometraje, const float combustible) 
+        : Vehiculo(cilindrada, kilometraje, combustible) {
     this->precioBase = PRECIO_BASE_CAMION;
 }
 
-float Camion::valorMercado() {
+float Camion::valorMercado() const {
     return (this->coeficienteImpositivo() * this->precioBase) /
             ((this->kilometraje + this->cilindrada + this->combustible) * 0.002f);
 }
