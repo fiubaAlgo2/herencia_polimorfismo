@@ -3,9 +3,10 @@
 //
 
 #include "camion.h"
+#include "constantes.h"
 
 Camion::Camion(float cilindrada, float kilometraje, float combustible):Vehiculo(cilindrada, kilometraje, combustible) {
-    this->precioBase = 1500;
+    this->precioBase = PRECIO_BASE_CAMION;
 }
 
 float Camion::valorMercado() {

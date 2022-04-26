@@ -3,9 +3,10 @@
 //
 
 #include "auto.h"
+#include "constantes.h"
 
 Auto::Auto(float cilindrada, float kilometraje, float combustible):Vehiculo(cilindrada, kilometraje, combustible) {
-    this->precioBase = 1000;
+    this->precioBase = PRECIO_BASE_AUTO;
 }
 
 float Auto::valorMercado() {

@@ -20,8 +20,6 @@ public:
     float coeficienteImpositivo();
 
     virtual float valorMercado()=0;
-
-    void crear(char** entrada);
 };
 
 #endif //UNTITLED4_VEHICULO_H

@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
         delete vehiculo;
     }
     else {
-        cout << "Ingrese los argumentos del programa, por ejemplo: ./a.out camion 1 2 3" << endl;
+        cout << "Ingrese los argumentos del programa, por ejemplo: ./programa camion 1 2 3" << endl;
     }
     
     return 0;
